@@ -22,10 +22,12 @@
         android:id="@+id/user"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/user"
+        android:src="@drawable/user_vector"
         android:paddingLeft="5dp"
         android:paddingTop="5dp"
          />
+
+
 
 
 
@@ -41,7 +43,11 @@
         app:layout_constraintTop_toBottomOf="@+id/user"
         android:background="@drawable/bgmenus"
         >
-
+     <HorizontalScrollView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:scrollbars="none"
+         >
 
      <LinearLayout
          android:layout_marginTop="40dp"
@@ -54,7 +60,14 @@
              android:layout_width="90dp"
              android:layout_height="90dp"
              android:layout_gravity="center"
-             android:src="@drawable/boy"
+             android:paddingLeft="10dp"
+             android:src="@drawable/add_album" />
+
+         <ImageView
+             android:layout_width="90dp"
+             android:layout_height="90dp"
+             android:layout_gravity="center"
+             android:src="@drawable/qrcode"
              android:paddingLeft="10dp"
              />
 
@@ -62,7 +75,7 @@
              android:layout_width="90dp"
              android:layout_height="90dp"
              android:layout_gravity="center"
-             android:src="@drawable/boy"
+             android:src="@drawable/lens"
              android:paddingLeft="10dp"
              />
 
@@ -70,7 +83,7 @@
              android:layout_width="90dp"
              android:layout_height="90dp"
              android:layout_gravity="center"
-             android:src="@drawable/boy"
+             android:src="@drawable/lens"
              android:paddingLeft="10dp"
              />
 
@@ -78,7 +91,7 @@
              android:layout_width="90dp"
              android:layout_height="90dp"
              android:layout_gravity="center"
-             android:src="@drawable/boy"
+             android:src="@drawable/lens"
              android:paddingLeft="10dp"
              />
 
@@ -90,6 +103,8 @@
 
 
      </LinearLayout>
+
+     </HorizontalScrollView>
 
 
     </LinearLayout>
