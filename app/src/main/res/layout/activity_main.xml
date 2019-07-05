@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#f2f2f2">
 
     <View
         android:id="@+id/head"
@@ -13,6 +14,7 @@
         android:background="@drawable/bgheader"
         android:layout_margin="0dp"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -25,24 +27,12 @@
         android:src="@drawable/user_vector"
         android:paddingLeft="5dp"
         android:paddingTop="5dp"
+        android:onClick="userDetails"
          />
 
-    <!--ImageButton
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:src="@drawable/hamburger"
-        android:background="@null" /  -->
+    
 
-
-
-
-
-
-
-
-    <LinearLayout
+    <!--LinearLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:orientation="vertical"
@@ -71,7 +61,8 @@
              android:layout_height="70dp"
              android:layout_gravity="center"
              android:paddingLeft="10dp"
-             android:src="@drawable/add_album" />
+             android:src="@drawable/add_album"
+             android:onClick="newAlbum"/>
 
          <ImageView
              android:layout_width="70dp"
@@ -79,6 +70,7 @@
              android:layout_gravity="center"
              android:src="@drawable/qrcode"
              android:paddingLeft="10dp"
+             android:onClick="scan"
              />
 
          <ImageButton
@@ -93,6 +85,8 @@
              android:layout_gravity="center"
              android:src="@drawable/lens"
              android:paddingLeft="10dp"
+             android:onClick="albumSelect"
+
              />
 
          <ImageView
@@ -101,6 +95,7 @@
              android:layout_gravity="center"
              android:src="@drawable/lens"
              android:paddingLeft="10dp"
+             android:onClick="albumSelect"
              />
 
          <ImageView
@@ -109,6 +104,7 @@
              android:layout_gravity="center"
              android:src="@drawable/lens"
              android:paddingLeft="10dp"
+             android:onClick="albumSelect"
              />
 
          <ImageView
@@ -117,6 +113,7 @@
              android:layout_gravity="center"
              android:src="@drawable/lens"
              android:paddingLeft="10dp"
+             android:onClick="albumSelect"
              />
 
 
@@ -131,6 +128,31 @@
      </HorizontalScrollView>
 
 
-    </LinearLayout>
+    </LinearLayout-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/bgmenus"
+            android:orientation="horizontal"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:id="@+id/recycler_view"
+
+            >
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+    </RelativeLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

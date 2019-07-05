@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">ui</string>
+
+    <string-array name="menuElements">
+        <item>new</item>
+        <item>scan</item>
+        <item>one</item>
+        <item>two</item>
+        <item>three</item>
+        <item>four</item>
+        <item>five</item>
+        <item>six</item>
+    </string-array>
 </resources>
