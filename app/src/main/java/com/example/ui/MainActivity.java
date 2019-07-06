@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Toast;
 
@@ -24,6 +26,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        /*new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent homeIntent;
+                homeIntent = new Intent(MainActivity.this,splashScreen.class);
+                startActivity(homeIntent);
+                finish();
+            }
+        },3000); */
 
         r= (RecyclerView)findViewById(R.id.recycler_view);
         str=getResources().getStringArray(R.array.menuElements);
@@ -31,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
 
         r.setAdapter(ad);
         r.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+
+    }
+
+    public void userDetails(View view) {
+        Intent profile =new Intent(this,userProfile.class);
+        startActivity(profile);
 
     }
 
@@ -42,9 +59,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void userDetails(View view) {
-        Toast.makeText(this,"user menu",Toast.LENGTH_SHORT).show();
-    }
+
 
     public void scan(View view) {
         Toast.makeText(this,"scan",Toast.LENGTH_SHORT).show();

@@ -5,7 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -37,9 +39,17 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull menuViewAdapter.myHolder holder, int position) {
+    public void onBindViewHolder(@NonNull menuViewAdapter.myHolder holder, final int position) {
         holder.t.setText(titles[position]);
         holder.i.setImageResource(img[position]);
+
+        holder.r.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(ctx,titles[position],Toast.LENGTH_SHORT).show();
+            }
+        });
 
 
 
@@ -55,11 +65,13 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
 
         TextView t;
         ImageView i;
+        RelativeLayout r;
 
         public myHolder(@NonNull View itemView) {
             super(itemView);
             t=(TextView)itemView.findViewById(R.id.text);
             i=(ImageView)itemView.findViewById(R.id.image);
+            r=itemView.findViewById(R.id.menuLayout);
         }
     }
 }
