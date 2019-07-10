@@ -35,6 +35,7 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
     public menuViewAdapter.myHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater myInflater =LayoutInflater.from(ctx);
         View myOwnView=myInflater.inflate(R.layout.menu_view,parent,false);
+
         return new myHolder(myOwnView);
     }
 
@@ -50,6 +51,8 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
                 Toast.makeText(ctx,titles[position],Toast.LENGTH_SHORT).show();
             }
         });
+
+
 
 
 
@@ -72,6 +75,9 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
             t=(TextView)itemView.findViewById(R.id.text);
             i=(ImageView)itemView.findViewById(R.id.image);
             r=itemView.findViewById(R.id.menuLayout);
+
+            //for floating context menu
+
         }
     }
 }
