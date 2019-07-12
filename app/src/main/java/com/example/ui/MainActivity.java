@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -49,6 +50,12 @@ public class MainActivity extends AppCompatActivity {
         Intent profile =new Intent(this,userProfile.class);
         startActivity(profile);
 
+    }
+
+    public boolean onContextitemSelected(MenuItem item) {
+        ad.getItemSelected(item);
+
+        return super.onContextItemSelected(item);
     }
 
     /*
