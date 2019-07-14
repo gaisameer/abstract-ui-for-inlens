@@ -3,6 +3,7 @@ package com.example.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.os.Handler;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,12 +40,28 @@ public class MainActivity extends AppCompatActivity {
             }
         },3000); */
 
-        r= (RecyclerView)findViewById(R.id.recycler_view);
+        r= findViewById(R.id.recycler_view);
         str=getResources().getStringArray(R.array.menuElements);
         ad=new menuViewAdapter(this,menuImages,str);
 
         r.setAdapter(ad);
         r.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+
+
+
+
+        //staggered recycler view
+        String picUrls[] = getResources().getStringArray(R.array.urls);
+        RecyclerView srecyclerView = (RecyclerView)findViewById(R.id.StaggeredRecyclerView);
+        staggeredViewAdapter staggeredViewAdapter = new staggeredViewAdapter(this,picUrls);
+        StaggeredGridLayoutManager staggeredGridLayoutManager =new StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL);
+        srecyclerView.setLayoutManager(staggeredGridLayoutManager);
+        srecyclerView.setAdapter(staggeredViewAdapter);
+
+
+
+
+        ////////////
 
     }
 
@@ -58,24 +77,21 @@ public class MainActivity extends AppCompatActivity {
         return super.onContextItemSelected(item);
     }
 
-    /*
-
-    public void newAlbum(View view) {
+    /*    public void newAlbum(View view) {
         Toast.makeText(this,"new album",Toast.LENGTH_SHORT).show();
-
     }
-
-
-
-
     public void scan(View view) {
         Toast.makeText(this,"scan",Toast.LENGTH_SHORT).show();
     }
-
     public void albumSelect(View view) {
         Toast.makeText(this,"view album",Toast.LENGTH_SHORT).show();
     }
       */
+
+
+    //////////
+
+
 
 
 

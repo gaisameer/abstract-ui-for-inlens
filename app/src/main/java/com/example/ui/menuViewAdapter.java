@@ -12,7 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import java.util.ArrayList;
 
@@ -51,6 +53,8 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
             @Override
             public void onClick(View view) {
                 Toast.makeText(ctx, "single click "+titles[position], Toast.LENGTH_SHORT).show();
+
+
             }
         });
 
@@ -85,6 +89,7 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
     public void getItemSelected(MenuItem item)
     {
         Toast.makeText(ctx,"long press 2 "+ item.getTitle(),Toast.LENGTH_SHORT).show();
+
     }
 
 
