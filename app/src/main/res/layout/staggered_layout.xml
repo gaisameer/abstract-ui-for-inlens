@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
             android:id="@+id/imageviewforstaggered"
-            android:scaleType="center"/>
+            android:scaleType="fitXY"/>
 
     </androidx.cardview.widget.CardView>
 
