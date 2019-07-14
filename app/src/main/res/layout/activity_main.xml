@@ -31,124 +31,32 @@
         android:onClick="userDetails"
          />
 
-    
 
-    <!--LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:orientation="vertical"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="35dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user"
-        android:background="@drawable/bgmenus"
-        >
-     <HorizontalScrollView
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:scrollbars="none"
-         >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp">
 
      <LinearLayout
-         android:layout_marginTop="40dp"
-         android:orientation="horizontal"
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:weightSum="4">
-
-         <ImageView
-             android:layout_width="70dp"
-             android:layout_height="70dp"
-             android:layout_gravity="center"
-             android:paddingLeft="10dp"
-             android:src="@drawable/add_album"
-             android:onClick="newAlbum"/>
-
-         <ImageView
-             android:layout_width="70dp"
-             android:layout_height="70dp"
-             android:layout_gravity="center"
-             android:src="@drawable/qrcode"
-             android:paddingLeft="10dp"
-             android:onClick="scan"
-             />
-
-         <ImageButton
-             android:layout_width="10dp"
-             android:layout_height="70dp" />
-
-
-
-         <ImageView
-             android:layout_width="70dp"
-             android:layout_height="70dp"
-             android:layout_gravity="center"
-             android:src="@drawable/lens"
-             android:paddingLeft="10dp"
-             android:onClick="albumSelect"
-
-             />
-
-         <ImageView
-             android:layout_width="70dp"
-             android:layout_height="70dp"
-             android:layout_gravity="center"
-             android:src="@drawable/lens"
-             android:paddingLeft="10dp"
-             android:onClick="albumSelect"
-             />
-
-         <ImageView
-             android:layout_width="70dp"
-             android:layout_height="70dp"
-             android:layout_gravity="center"
-             android:src="@drawable/lens"
-             android:paddingLeft="10dp"
-             android:onClick="albumSelect"
-             />
-
-         <ImageView
-             android:layout_width="70dp"
-             android:layout_height="70dp"
-             android:layout_gravity="center"
-             android:src="@drawable/lens"
-             android:paddingLeft="10dp"
-             android:onClick="albumSelect"
-             />
-
-
-
-
-
-
-
-
-     </LinearLayout>
-
-     </HorizontalScrollView>
-
-
-    </LinearLayout-->
-
-
-
+         android:orientation="vertical">
 
 
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="45dp"
             android:background="@drawable/bgmenus"
             android:orientation="horizontal"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:id="@+id/recycler_view"
-
-            >
+            android:id="@+id/recycler_view">
 
         </androidx.recyclerview.widget.RecyclerView>
+
+
 
 
 
@@ -156,20 +64,17 @@
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="30dp"
         android:orientation="vertical"
         android:id="@+id/StaggeredRecyclerView">
-
-
-
 
     </androidx.recyclerview.widget.RecyclerView>
 
 
+     </LinearLayout>
 
 
-
-
+    </androidx.core.widget.NestedScrollView>
 
 
 

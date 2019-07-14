@@ -48,6 +48,8 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
         holder.t.setText(titles[position]);
         holder.i.setImageResource(img[position]);
 
+
+
         holder.r.setOnClickListener(new View.OnClickListener() {
 
             @Override
