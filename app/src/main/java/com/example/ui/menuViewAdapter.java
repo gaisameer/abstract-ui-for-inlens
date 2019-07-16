@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -23,16 +24,18 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
     String titles[];
     int img[];
     Context ctx;
+    RecyclerView MainRV;
+    String Urls[];
 
+    // MainRV is the instance of recyclerview in MainActivity and Url is the string array containing all images of album
 
-    public menuViewAdapter(Context ct,int i[],String s[]){
-        ctx=ct;
-        img=i;
-        titles=s;
+    public menuViewAdapter(Context ctx,int[] img,String[] titles, RecyclerView mainRV, String[] urls) {
+        this.titles = titles;
+        this.img = img;
+        this.ctx = ctx;
+        MainRV = mainRV;
+        Urls = urls;
     }
-
-
-
 
     @NonNull
     @Override
@@ -54,9 +57,24 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
 
             @Override
             public void onClick(View view) {
+
                 Toast.makeText(ctx, "single click "+titles[position], Toast.LENGTH_SHORT).show();
 
+                // Animation added for better UX
 
+                MainRV.clearAnimation();
+                MainRV.setAnimation(AnimationUtils.loadAnimation(ctx,android.R.anim.fade_out));
+                MainRV.getAnimation().start();
+                MainRV.removeAllViews();
+                MainRV.setVisibility(View.GONE);
+                staggeredViewAdapter staggeredViewAdapter = new staggeredViewAdapter(ctx,Urls);
+                StaggeredGridLayoutManager staggeredGridLayoutManager =new StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL);
+                MainRV.setLayoutManager(staggeredGridLayoutManager);
+                MainRV.setAdapter(staggeredViewAdapter);
+                MainRV.clearAnimation();
+                MainRV.setAnimation(AnimationUtils.loadAnimation(ctx,android.R.anim.fade_in));
+                MainRV.getAnimation().start();
+                MainRV.setVisibility(View.VISIBLE);
             }
         });
 

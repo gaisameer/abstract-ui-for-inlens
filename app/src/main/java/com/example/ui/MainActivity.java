@@ -40,9 +40,12 @@ public class MainActivity extends AppCompatActivity {
             }
         },3000); */
 
+        String picUrls[] = getResources().getStringArray(R.array.urls);
+        RecyclerView srecyclerView = (RecyclerView)findViewById(R.id.StaggeredRecyclerView);
+
         r= findViewById(R.id.recycler_view);
         str=getResources().getStringArray(R.array.menuElements);
-        ad=new menuViewAdapter(this,menuImages,str);
+        ad=new menuViewAdapter(this,menuImages,str,srecyclerView,picUrls);
 
         r.setAdapter(ad);
         r.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
@@ -51,8 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         //staggered recycler view
-        String picUrls[] = getResources().getStringArray(R.array.urls);
-        RecyclerView srecyclerView = (RecyclerView)findViewById(R.id.StaggeredRecyclerView);
+
         staggeredViewAdapter staggeredViewAdapter = new staggeredViewAdapter(this,picUrls);
         StaggeredGridLayoutManager staggeredGridLayoutManager =new StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL);
         srecyclerView.setLayoutManager(staggeredGridLayoutManager);
