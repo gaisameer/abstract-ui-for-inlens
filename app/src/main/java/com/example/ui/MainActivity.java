@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         //staggered recycler view
+
+
         String picUrls[] = getResources().getStringArray(R.array.urls);
         RecyclerView srecyclerView = (RecyclerView)findViewById(R.id.StaggeredRecyclerView);
         staggeredViewAdapter staggeredViewAdapter = new staggeredViewAdapter(this,picUrls);

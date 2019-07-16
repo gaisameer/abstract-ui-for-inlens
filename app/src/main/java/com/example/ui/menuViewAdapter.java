@@ -25,6 +25,7 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
     Context ctx;
 
 
+
     public menuViewAdapter(Context ct,int i[],String s[]){
         ctx=ct;
         img=i;
@@ -44,9 +45,11 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull menuViewAdapter.myHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final menuViewAdapter.myHolder holder, final int position) {
         holder.t.setText(titles[position]);
         holder.i.setImageResource(img[position]);
+        holder.i.setAlpha(1f);
+
 
 
 
@@ -54,7 +57,11 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
 
             @Override
             public void onClick(View view) {
-                Toast.makeText(ctx, "single click "+titles[position], Toast.LENGTH_SHORT).show();
+
+
+                Toast.makeText(ctx, "single click "+position, Toast.LENGTH_SHORT).show();
+                holder.i.setAlpha(0.7f);
+
 
 
             }
@@ -115,6 +122,8 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
 
             itemView.setOnLongClickListener(this);
             itemView.setOnCreateContextMenuListener(this);
+
+
 
         }
 
