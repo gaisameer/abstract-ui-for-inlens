@@ -6,11 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -22,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     int menuImages[]={R.drawable.add_album,R.drawable.qrcode,R.drawable.lens,R.drawable.lens,R.drawable.lens,R.drawable.lens,R.drawable.lens,R.drawable.lens};
     menuViewAdapter ad;
     RecyclerView r;
+    SearchView s;
+    TextView searchText;
 
 
 
@@ -31,15 +36,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent homeIntent;
-                homeIntent = new Intent(MainActivity.this,splashScreen.class);
-                startActivity(homeIntent);
-                finish();
-            }
-        },3000); */
+
+        s=findViewById(R.id.searchBarz);
+        int id = s.getContext()
+                .getResources()
+                .getIdentifier("android:id/search_src_text", null, null);
+        searchText = (TextView) s.findViewById(id);
+        searchText.setTextColor(Color.WHITE);
+        searchText.setBackgroundColor(Color.TRANSPARENT);
+
 
         String picUrls[] = getResources().getStringArray(R.array.urls);
         RecyclerView srecyclerView = (RecyclerView)findViewById(R.id.StaggeredRecyclerView);

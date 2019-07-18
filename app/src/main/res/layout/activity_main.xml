@@ -32,6 +32,24 @@
          />
 
 
+
+
+<SearchView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true"
+    app:queryHint="Search album"
+    android:searchIcon="@drawable/ic_search_black_24dp"
+    android:closeIcon="@drawable/ic_close_black_24dp"
+    android:searchHintIcon="@drawable/ic_search_black_24dp_fade"
+    android:id="@+id/searchBarz">
+
+
+
+</SearchView>
+
+
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
