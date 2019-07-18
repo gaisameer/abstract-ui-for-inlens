@@ -1,6 +1,7 @@
 package com.example.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,10 +38,12 @@ public class staggeredViewAdapter extends RecyclerView.Adapter<staggeredViewAdap
     public void onBindViewHolder(@NonNull viewHolder holder, final int position) {
 
         RequestOptions requestOptions =new RequestOptions().placeholder(R.drawable.inlens_notification);
+        RequestOptions reduceQualityOfImage = new RequestOptions();
 
         Glide.with(ctx)
                 .load(picURLs[position])
                 .apply(requestOptions)
+             //   .apply(reduceQualityOfImage)
                 .into(holder.i);
 
 

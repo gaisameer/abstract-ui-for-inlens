@@ -1,11 +1,13 @@
 package com.example.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -23,17 +25,20 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
     String titles[];
     int img[];
     Context ctx;
+    RecyclerView MainRV;
+    String Urls[];
+
+    // MainRV is the instance of recyclerview in MainActivity and Url is the string array containing all images of album
 
 
+    public menuViewAdapter(Context ctx,int[] img,String[] titles, RecyclerView mainRV) {
+        this.titles = titles;
+        this.img = img;
+        this.ctx = ctx;
+        MainRV = mainRV;
 
-    public menuViewAdapter(Context ct,int i[],String s[]){
-        ctx=ct;
-        img=i;
-        titles=s;
+
     }
-
-
-
 
     @NonNull
     @Override
@@ -59,11 +64,51 @@ public class menuViewAdapter extends RecyclerView.Adapter<menuViewAdapter.myHold
             public void onClick(View view) {
 
 
+
                 Toast.makeText(ctx, "single click "+position, Toast.LENGTH_SHORT).show();
-                holder.i.setAlpha(0.7f);
 
 
 
+
+
+
+                // Animation added for better UX
+
+                MainRV.clearAnimation();
+                MainRV.setAnimation(AnimationUtils.loadAnimation(ctx,android.R.anim.fade_out));
+                MainRV.getAnimation().start();
+                MainRV.removeAllViews();
+                MainRV.setVisibility(View.GONE);
+
+                if(position==0)
+                {
+                    Intent newAlbum = new Intent(ctx,newAlbum.class);
+                    ctx.startActivity(newAlbum);
+                }
+
+                if(position==1)
+                {   //do the scan
+                }
+
+                if(position==2)
+                {
+                    Urls=ctx.getResources().getStringArray(R.array.urls);
+                }
+                else
+                {
+                    Urls=ctx.getResources().getStringArray(R.array.nonurls);
+
+                }
+
+
+                staggeredViewAdapter staggeredViewAdapter = new staggeredViewAdapter(ctx,Urls);
+                StaggeredGridLayoutManager staggeredGridLayoutManager =new StaggeredGridLayoutManager(2,LinearLayoutManager.VERTICAL);
+                MainRV.setLayoutManager(staggeredGridLayoutManager);
+                MainRV.setAdapter(staggeredViewAdapter);
+                MainRV.clearAnimation();
+                MainRV.setAnimation(AnimationUtils.loadAnimation(ctx,android.R.anim.fade_in));
+                MainRV.getAnimation().start();
+                MainRV.setVisibility(View.VISIBLE);
             }
         });
 

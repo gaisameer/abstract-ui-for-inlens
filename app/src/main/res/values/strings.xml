@@ -11,9 +11,8 @@
         <item>five</item>
         <item>six</item>
     </string-array>
-    
-    
-    
+
+
     <string-array name="urls">
         <item>https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg</item>
         <item>https://i.redd.it/tpsnoz5bzo501.jpg</item>
@@ -24,7 +23,8 @@
         <item>https://i.redd.it/obx4zydshg601.jpg</item>
         <item>https://i.imgur.com/ZcLLrkY.jpg</item>
 
-    </string-array><string-array name="nonurls">
+    </string-array>
+    <string-array name="nonurls">
         <item>https://c1.staticflickr.com/5/41636/25316407448_de5fbf183d_o.jpg</item>
         <item>https://i.redd.it/tpsnoz15bzo501.jpg</item>
         <item>https://i.redd.it/qn7f9o1qu7o501.jpg</item>
